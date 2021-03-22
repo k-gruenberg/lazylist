@@ -34,6 +34,6 @@ lib/
 out/
 target/
 *.iml
-*.xml # pom.xml
+*.xml
 
 *.txt
