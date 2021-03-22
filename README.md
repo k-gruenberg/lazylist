@@ -34,14 +34,14 @@ Apart from `toString()` which has to fully evaluate the list before returning, t
 `show()` is the lazy version of `toString()` and returns a LazyList of Characters instead of an ordinary Java String.
 `print()` prints the LazyList element-by-element, for example to System.out.
 `asString()` is the counterpart of `fromString()` and only works on LazyLists of Characters.
-It concatenates the Characters instead of putting them in quotation marks and separating them with commas like the other methods.
+It concatenates the Characters instead of putting them in quotation marks and separating them with commas like the other methods.  
     String toString();
     void print(java.io.PrintStream);
     LazyList<Character> show();
     String asString() throws UnsupportedOperationException;
     static LazyList<Character> fromString(String str); // In Haskell Strings already are lazy lists of chars by definition: type String = [Char]
 
-These are all the static functions that create a new LazyList in some way or the other:
+These are all the static functions that create a new LazyList in some way or the other:  
     static <T> LazyList<T> view(Iterable<T> collection);
     static <T> LazyList<T> emptyList();                  // Haskell analogue: [] :: [a]
     static <T> LazyList<T> of(T... elements);            // Haskell analogue: [x,y,z] (list literal)
@@ -71,7 +71,7 @@ These are all the static functions that create a new LazyList in some way or the
     
     static <T> LazyList<T> concat(LazyList<LazyList<T>> listOfLists);
 
-Instance methods:
+Instance methods:  
     LazyList<Object> concat() throws ClassCastException; // type-unsafe version of the static concat()
     LinkedList<T> toLinkedList();
     ArrayList<T> toArrayList();
@@ -153,7 +153,7 @@ Instance methods:
     LazyList<Character> unwords() throws UnsupportedOperationException; // unwords :: [String] -> String
     LazyList<String> split(String delimiter); // (no equivalent in Haskell's Prelude)
     
-There are also some more advanced functions that do not come from Haskell but exist to make the LazyList's integration into Java's constructs are seamless as possible:
+There are also some more advanced functions that do not come from Haskell but exist to make the LazyList's integration into Java's constructs are seamless as possible:  
     static LazyList<Integer> fromInputStream(InputStream inputStream);
     java.io.InputStream asInputStream() throws ClassCastException;
     static LazyList<Character> fromASCIIFile(File file) throws FileNotFoundException;
@@ -164,12 +164,12 @@ There are also some more advanced functions that do not come from Haskell but ex
     LazyList<T> traverse();
     void traverseAndThen(Consumer<LazyList<T>> actionAfterTraversal);
 
-One can even use a LazyList as a (possibly infinite!) Map:
+One can even use a LazyList as a (possibly infinite!) Map:  
     static <A,B> LazyList<Pair<A,B>> fromMap(java.util.Map<A,B> map);
     Optional<Object> lookup(Object key) throws UnsupportedOperationException; // Haskell analogue: lookup :: Eq a => a -> [(a, b)] -> Maybe b
     Map<Object,Object> viewAsMap() throws UnsupportedOperationException;
 
-The following methods exist so that you can write even more compact code / one-liners:
+The following methods exist so that you can write even more compact code / one-liners:  
     LazyList<T> forEachAndThen(Consumer<? super T> action);
     LazyList<T> forEachWithIndex(BiConsumer<? super T, Integer> action);
     LazyList<T> forEachWithIndexAndLength(TriConsumer<? super T, Integer, Integer> action);
