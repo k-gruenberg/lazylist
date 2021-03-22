@@ -31,6 +31,9 @@ docs/
 # IntelliJ IDE
 .idea/
 lib/
+out/
+target/
 *.iml
+*.xml # pom.xml
 
 *.txt
