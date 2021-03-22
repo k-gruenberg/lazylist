@@ -32,3 +32,5 @@ docs/
 .idea/
 lib/
 *.iml
+
+.txt
