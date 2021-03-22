@@ -27,3 +27,8 @@ docs/
 *.html
 *.js
 *.css
+
+# IntelliJ IDE
+.idea/
+lib/
+*.iml
